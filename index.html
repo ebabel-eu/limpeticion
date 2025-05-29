@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -14,33 +16,375 @@
       --ivory: #F8F6F0;
       --gold: #D4AF37;
       --dark-gold: #C9A44C;
+      --champagne: #F3EFE8;
       --font-header: "Playfair Display", serif;
       --font-body: "Montserrat", sans-serif;
+      --radius: 4px;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: var(--font-body);
       font-optical-sizing: auto;
+      font-size: 1rem;
       font-weight: 400;
       font-style: normal;
-      background-color: var(--ivory);
+      background-color: var(--champagne);
       color: var(--navy);
+      margin: 0;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2 {
       font-family: var(--font-header);
       font-optical-sizing: auto;
       font-weight: 700;
       font-style: normal;
+      margin: 0 0 .5em;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    input,
+    button {
+      font-family: var(--font-body);
+    }
+
+    p {
+      margin: 0 0 1em;
+    }
+
+    header,
+    section,
+    footer {
+      background-color: var(--ivory);
+      padding: .75em 2em 1.5em;
+      margin: 2em auto;
+      border-radius: var(--radius);
+      max-width: 500px;
+    }
+
+    footer {
+      margin-bottom: 500px;
+    }
+
+    .only-large {
+      display: inline-block;
+    }
+
+    .only-small {
+      display: none;
+    }
+
+    .cta {
+      text-decoration: none;
+      border-radius: var(--radius);
+      display: inline-block;
+      transition: background 0.2s ease;
+      line-height: 1em;
+    }
+
+    .cta-primary {
+      background-color: var(--dark-gold);
+      color: var(--champagne);
+      padding: 12px 24px;
+      border: none;
+    }
+
+    .cta-primary:focus {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .cta-primary:hover {
+      background-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .cta-secondary {
+      background-color: var(--champagne);
+      color: var(--dark-gold);
+      border: 2px solid var(--dark-gold);
+      padding: 10px 22px;
+    }
+
+    .cta-secondary:hover {
+      background-color: var(--ivory);
+      color: var(--gold);
+      border-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .cta-divider {
+      display: inline-block;
+      width: 2em;
+      text-align: center;
+    }
+
+    .form-step {
+      display: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    legend {
+      margin-bottom: 0.5em;
+    }
+
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      margin: 1.5em auto 0;
+    }
+
+    .form-nav .back {
+      margin-right: auto;
+    }
+
+    .form-nav .next,
+    .form-nav [type="submit"] {
+      margin-left: auto;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    textarea,
+    select {
+      font-size: 1rem;
+      padding: 0.75em 1em;
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      line-height: 1.4;
+      margin-bottom: 1.5em;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--dark-gold);
+      box-shadow: 0 0 0 2px var(--champagne);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    @keyframes flash {
+      0% {
+        box-shadow: 0 0 0 0 var(--gold);
+      }
+
+      50% {
+        box-shadow: 0 0 12px 4px var(--gold);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 var(--gold);
+      }
+    }
+
+    .flash-highlight {
+      animation: flash 1s ease-out;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        margin-top: 0;
+      }
+
+      .only-large {
+        display: none;
+      }
+
+      .only-small {
+        display: inline-block;
+      }
+
+      .cta-divider {
+        display: none;
+      }
+
+      .cta {
+        display: block;
+        text-align: center;
+        margin-bottom: 0.5em;
+      }
     }
   </style>
 
-  <title>Limpieza de Sofas en Madrid - Limpeticíon</title>
-  <meta name="description" content="Descubre artículos útiles y consejos sobre limpieza, higiene y cuidado de sofás, colchones y alfombras en el blog de Limpetición.">
+  <title>Limpieza de sofás en Madrid - Limpeticíon</title>
+  <meta name="description"
+    content="Descubre artículos útiles y consejos sobre limpieza, higiene y cuidado de sofás, colchones y alfombras en el blog de Limpetición.">
 </head>
-<body>
-  <h1>Colour Scheme</h1>
-  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores aperiam maxime assumenda reiciendis, odio in sapiente sed minima culpa rem ex eaque doloremque dolorum. Autem iure facilis quia saepe sint.</p>
 
+<body>
+  <header>
+    <h1>Limpieza de sofás <span class="only-large">en Madrid</span></h1>
+    <p>¿Cómo prefiere contactarnos?</p>
+    <a href="https://wa.me/34607572207" class="cta cta-secondary" target="_blank" rel="noopener">
+      Solicite por WhatsApp
+    </a>
+    <span class="cta-divider">o</span>
+    <a href="#presupuesto-form" class="cta cta-primary scroll-to-form">
+      Presupuesto detallado
+    </a>
+  </header>
+
+  <section id="hero">
+    <h2>Restaure la elegancia original de sus muebles</h2>
+
+    <p>Descubra nuestro exclusivo servicio de limpieza de sofás a domicilio en Madrid y prolongue la vida de sus piezas
+      más preciadas.</p>
+
+    <p>
+      <a href="#presupuesto-form" class="cta cta-primary scroll-to-form">
+        Solicitar presupuesto
+      </a>
+    </p>
+
+    <p>Google * * * * * 4.9 - 78 reseñas</p>
+
+    <ul>
+      <li>Disponibilidad flexible, incluso en fines de semana y horarios vespertinos</li>
+      <li>Productos ecológicos, seguros para mascotas y niños</li>
+      <li>Valorado con 5 estrellas por clientes exigentes y satisfechos</li>
+    </ul>
+
+    <a href="https://wa.me/34607572207" class="cta cta-secondary" target="_blank" rel="noopener">
+      Reservar por WhatsApp
+    </a>
+
+  </section>
+
+  <section id="presupuesto-form">
+    <h2>Solicite su presupuesto</h2>
+    <form>
+      <fieldset class="form-step active">
+        <legend>¿Qué desea limpiar?</legend>
+        <input type="checkbox" name="sofa" id="checkbox-sofa"><label for="checkbox-sofa"> Sofá</label>
+        <input type="checkbox" name="sillon" id="checkbox-sillon"><label for="checkbox-sillon"> Sillón</label>
+        <input type="checkbox" name="silla" id="checkbox-silla"><label for="checkbox-silla"> Silla</label>
+        <input type="checkbox" name="colchon" id="checkbox-colchon"><label for="checkbox-colchon"> Colchón</label>
+        <input type="checkbox" name="alfombra" id="checkbox-alfombra"><label for="checkbox-alfombra"> Alfombra</label>
+        <div class="form-nav">
+          <button type="button" class="cta cta-primary next">Siguiente</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-step">
+        <legend>¿Cuál es su código postal?</legend>
+        <input type="text" name="codigo-postal" placeholder="28001" required>
+        <div class="form-nav">
+          <button type="button" class="cta cta-secondary back">Atrás</button>
+          <button type="button" class="cta cta-primary next">Siguiente</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-step">
+        <legend>Su nombre</legend>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+        <div class="form-nav">
+          <button type="button" class="cta cta-secondary back">Atrás</button>
+          <button type="button" class="cta cta-primary next">Siguiente</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-step">
+        <legend>Su número de teléfono</legend>
+        <input type="tel" id="telefono" name="telefono" placeholder="+34 612 345 678" required>
+        <div class="form-nav">
+          <button type="button" class="cta cta-secondary back">Atrás</button>
+          <button type="submit" class="cta cta-primary">Enviar</button>
+        </div>
+      </fieldset>
+    </form>
+  </section>
+
+  <section>
+    <ul>
+      <li>✔ Limpieza profunda sin productos agresivos</li>
+      <li>✔ Resultados visibles en una sola visita</li>
+      <li>✔ Técnicos puntuales, uniformados y certificados</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Este sitio web es parte de Limpeticíon</p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      document.querySelectorAll('.scroll-to-form').forEach(button => {
+        button.addEventListener('click', function (event) {
+          event.preventDefault();
+          const formSection = document.getElementById('presupuesto-form');
+          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(() => {
+            formSection.classList.add('flash-highlight');
+            setTimeout(() => {
+              formSection.classList.remove('flash-highlight');
+            }, 1000);
+          }, 600);
+        });
+      });
+
+      const steps = document.querySelectorAll('.form-step');
+      let currentStep = 0;
+      function showStep(index) {
+        steps.forEach((step, i) => {
+          step.classList.toggle('active', i === index);
+        });
+      }
+      document.querySelectorAll('.next').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const currentFieldset = steps[currentStep];
+          const inputs = currentFieldset.querySelectorAll('input, select, textarea');
+          for (const input of inputs) {
+            if (!input.checkValidity()) {
+              input.reportValidity();
+              return;
+            }
+          }
+          if (currentStep < steps.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+          }
+        });
+      });
+      document.querySelectorAll('.back').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (currentStep > 0) {
+            currentStep--;
+            showStep(currentStep);
+          }
+        });
+      });
+      showStep(currentStep); // show first step on load
+    })();
+  </script>
 </body>
+
 </html>
