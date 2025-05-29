@@ -1,0 +1,24 @@
+{
+  "name": "limpeticion",
+  "version": "1.0.0",
+  "description": "Descubre artículos útiles y consejos sobre limpieza, higiene y cuidado de sofás, colchones y alfombras en el blog de Limpetición.",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebabel-eu/limpeticion.git"
+  },
+  "keywords": [
+    "sofa",
+    "madrid"
+  ],
+  "author": "Thomas Amar <hello@ebabel.eu>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebabel-eu/limpeticion/issues"
+  },
+  "homepage": "https://github.com/ebabel-eu/limpeticion#readme"
+}
