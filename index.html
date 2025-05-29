@@ -264,7 +264,7 @@
       </a>
     </p>
 
-    <p>Google * * * * * 4.9 - 78 reseñas</p>
+    <p>Valoración en Google: ★★★★★ 4.9 / 5 – Basado en 78 reseñas</p>
 
     <ul>
       <li>Disponibilidad flexible, incluso en fines de semana y horarios vespertinos</li>
@@ -283,18 +283,19 @@
     <form>
       <fieldset class="form-step active">
         <legend>¿Qué desea limpiar?</legend>
-        <input type="checkbox" name="sofa" id="checkbox-sofa"><label for="checkbox-sofa"> Sofá</label>
-        <input type="checkbox" name="sillon" id="checkbox-sillon"><label for="checkbox-sillon"> Sillón</label>
-        <input type="checkbox" name="silla" id="checkbox-silla"><label for="checkbox-silla"> Silla</label>
-        <input type="checkbox" name="colchon" id="checkbox-colchon"><label for="checkbox-colchon"> Colchón</label>
-        <input type="checkbox" name="alfombra" id="checkbox-alfombra"><label for="checkbox-alfombra"> Alfombra</label>
+        <label><input type="checkbox" name="sofa" id="checkbox-sofa"> Sofá</label>
+        <label><input type="checkbox" name="sillon" id="checkbox-sillon"> Sillón</label>
+        <label><input type="checkbox" name="silla" id="checkbox-silla"> Silla</label>
+        <label><input type="checkbox" name="colchon" id="checkbox-colchon"> Colchón</label>
+        <label><input type="checkbox" name="alfombra" id="checkbox-alfombra"> Alfombra</label>
+        <label><input type="checkbox" name="asientos" id="checkbox-asientos"> Asientos de coche</label>
         <div class="form-nav">
           <button type="button" class="cta cta-primary next">Siguiente</button>
         </div>
       </fieldset>
 
       <fieldset class="form-step">
-        <legend>¿Cuál es su código postal?</legend>
+        <legend>Su código postal</legend>
         <input type="text" name="codigo-postal" placeholder="28001" required>
         <div class="form-nav">
           <button type="button" class="cta cta-secondary back">Atrás</button>
@@ -313,7 +314,7 @@
 
       <fieldset class="form-step">
         <legend>Su número de teléfono</legend>
-        <input type="tel" id="telefono" name="telefono" placeholder="+34 612 345 678" required>
+        <input type="tel" id="telefono" name="telefono" placeholder="+34 612 345 678" pattern="\+?[0-9\s\-]+" required>
         <div class="form-nav">
           <button type="button" class="cta cta-secondary back">Atrás</button>
           <button type="submit" class="cta cta-primary">Enviar</button>
