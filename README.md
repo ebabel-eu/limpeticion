@@ -13,3 +13,7 @@ To run locally, `serve .` and browse to http://localhost:3000
 - [ ] I'm not sure it's a good idea to ask for both an email and a telephone number. Just the telephone number is enough and probably the best way to communicate, right?
 - [ ] Is uploading a photo essential?
 
+## Notes
+Main website: https://www.limpeticion.es/
+
+Competitor: https://limpiezadesofasenmadrid.es/
