@@ -17,3 +17,7 @@ To run locally, `serve .` and browse to http://localhost:3000
 Main website: https://www.limpeticion.es/
 
 Competitor: https://limpiezadesofasenmadrid.es/
+
+## Production
+
+Remove `<meta name="robots" content="noindex">` from `index.html` if it's still there.
