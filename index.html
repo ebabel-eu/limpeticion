@@ -63,6 +63,44 @@
       margin: 0 0 1em;
     }
 
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: .5em 0 1em;
+    }
+
+    p.antes, p.despues {
+      position: relative;
+      margin: .75em 0;
+    }
+    p.despues {
+      margin-bottom: 0;
+    }
+    p.antes img, p.despues img {
+      width: 100%;
+    }
+    p.antes::before,
+    p.despues::before {
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: transparent;
+      position: absolute;
+      opacity: .5;
+      color: white;
+      font-size: 2em;
+      transform: rotate(318deg);
+      bottom: -16px;
+    }
+    p.antes::before {
+      content: "ANTES";
+      right: -13px;
+    }
+    p.despues::before {
+      content: "DESPUÉS";
+      right: 23px;
+    }
+
     header,
     section,
     footer {
@@ -329,6 +367,36 @@
       <li>✔ Resultados visibles en una sola visita</li>
       <li>✔ Técnicos puntuales, uniformados y certificados</li>
     </ul>
+  </section>
+
+  <section>
+    <p class="antes"><img src="images/17_antes.jpg" alt="Antes" /></p>
+    <p class="despues"><img src="images/17_despues.jpg" alt="Despues" /></p>
+  </section>
+
+  <section>
+    <p class="antes"><img src="images/2_antes.jpg" alt="Antes" /></p>
+    <p class="despues"><img src="images/2_despues.jpg" alt="Despues" /></p>
+  </section>
+
+  <section>
+    <p class="antes"><img src="images/5_antes.jpg" alt="Antes" /></p>
+    <p class="despues"><img src="images/5_despues.jpg" alt="Despues" /></p>
+  </section>
+
+  <section>
+    <p class="antes"><img src="images/12_antes.jpg" alt="Antes" /></p>
+    <p class="despues"><img src="images/12_despues.jpg" alt="Despues" /></p>
+  </section>
+
+  <section>
+    <p class="antes"><img src="images/19_antes.jpg" alt="Antes" /></p>
+    <p class="despues"><img src="images/19_despues.jpg" alt="Despues" /></p>
+  </section>
+
+  <section>
+    <p class="antes"><img src="images/20_antes.jpg" alt="Antes" /></p>
+    <p class="despues"><img src="images/20_despues.jpg" alt="Despues" /></p>
   </section>
 
   <footer>
