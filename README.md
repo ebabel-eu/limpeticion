@@ -21,3 +21,7 @@ Competitor: https://limpiezadesofasenmadrid.es/
 ## Production
 
 Remove `<meta name="robots" content="noindex">` from `index.html` if it's still there.
+
+## Documentation
+
+https://drive.google.com/drive/folders/1KgbqpleECOXjutMVKqtsJHDLF0gzETP3

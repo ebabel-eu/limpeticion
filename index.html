@@ -293,7 +293,7 @@
       Solicite por WhatsApp
     </a>
     <span class="cta-divider">o</span>
-    <a href="#presupuesto-form" class="cta cta-primary scroll-to-form">
+    <a href="#presupuesto" class="cta cta-primary scroll-to-form">
       Presupuesto detallado
     </a>
   </header>
@@ -305,7 +305,7 @@
       más preciadas.</p>
 
     <p>
-      <a href="#presupuesto-form" class="cta cta-primary scroll-to-form">
+      <a href="#presupuesto" class="cta cta-primary scroll-to-form">
         Solicitar presupuesto
       </a>
     </p>
@@ -324,9 +324,9 @@
 
   </section>
 
-  <section id="presupuesto-form">
+  <section id="presupuesto">
     <h2>Solicite su presupuesto</h2>
-    <form>
+    <form action="https://formspree.io/f/manjegnz" method="POST" enctype="multipart/form-data" id="presupuesto-form">
       <fieldset class="form-step active">
         <legend>¿Qué desea limpiar?</legend>
         <label><input type="checkbox" name="sofa" id="checkbox-sofa"> Sofá</label>
@@ -349,6 +349,16 @@
         </div>
       </fieldset>
 
+      <!-- <fieldset class="form-step">
+        <legend>Adjunte imágenes de sus muebles (opcional)</legend>
+        <p>Estas nos permitirán valorarlos con mayor precisión y facilitarle un presupuesto ajustado y personalizado.</p>
+        <input type="file" name="upload" multiple />
+        <div class="form-nav">
+          <button type="button" class="cta cta-secondary back">Atrás</button>
+          <button type="button" class="cta cta-primary next">Siguiente</button>
+        </div>
+      </fieldset> -->
+
       <fieldset class="form-step">
         <legend>Su nombre</legend>
         <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
@@ -367,6 +377,7 @@
         </div>
       </fieldset>
     </form>
+    <p id="presupuesto-status"></p>
   </section>
 
   <section>
@@ -417,7 +428,7 @@
       document.querySelectorAll('.scroll-to-form').forEach(button => {
         button.addEventListener('click', function (event) {
           event.preventDefault();
-          const formSection = document.getElementById('presupuesto-form');
+          const formSection = document.getElementById('presupuesto');
           formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           setTimeout(() => {
             formSection.classList.add('flash-highlight');
@@ -460,6 +471,39 @@
         });
       });
       showStep(currentStep); // show first step on load
+
+      // Handle form submittions.
+      const form = document.getElementById("presupuesto-form");
+      const errorMessage = 'Hubo un error al enviar su formulario. Si el problema persiste, no dude en contactarnos por WhatsApp.';
+      async function handleSubmit(event) {
+        event.preventDefault();
+        const status = document.getElementById("presupuesto-status");
+        const data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+              'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            status.innerHTML = "Gracias por su envío.";
+            form.reset();
+            form.style.display = "none";
+          } else {
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+              } else {
+                status.innerHTML = errorMessage;
+              }
+            })
+          }
+        }).catch(error => {
+          status.innerHTML = errorMessage;
+        });
+      }
+      form.addEventListener("submit", handleSubmit)
     })();
   </script>
 </body>
