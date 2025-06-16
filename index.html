@@ -10,6 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:wght@700&display=swap"
     rel="stylesheet" />
+  <link rel="preload" as="image" href="images/contact.avif" type="image/avif" />
+  <link rel="preload" as="image" href="images/contact.webp" type="image/webp" />
+  <link rel="preload" as="image" href="images/contact.jpg" type="image/jpeg" />
+
 
   <style>
     :root {
@@ -266,6 +270,73 @@
       animation: flash 1s ease-out;
     }
 
+
+
+/* Checkboxes */
+
+.checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+
+.checkbox-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--dark-gold);
+  border-radius: var(--radius);
+  padding: 1em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: calc(50% - 0.5em);
+  box-sizing: border-box;
+  color: var(--navy);
+  background-color: var(--ivory);
+}
+
+.checkbox-tile input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-tile .icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0.25em;
+  stroke: var(--dark-gold);
+  transition: stroke 0.2s ease;
+}
+
+.checkbox-tile span {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Full-tile background on check using modern :has() selector */
+.checkbox-tile:has(input[type="checkbox"]:checked) {
+  background-color: var(--dark-gold);
+  color: var(--champagne);
+}
+
+.checkbox-tile:has(input[type="checkbox"]:checked) .icon {
+  stroke: var(--champagne);
+}
+
+.text-label {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.25em;
+}
+
+
+
+
     @media (max-width: 600px) {
       header {
         margin-top: 0;
@@ -301,7 +372,7 @@
     <picture class="hero-image">
       <source srcset="images/contact.avif" type="image/avif" />
       <source srcset="images/contact.webp" type="image/webp" />
-      <img src="images/contact.jpg" alt="Limpetición" />
+      <img src="images/contact.jpg" alt="Limpetición" loading="eager" />
     </picture>
     <h1>Limpieza de sofás <span class="only-large">en Madrid</span></h1>
     <p>¿Cómo prefiere contactarnos?</p>
@@ -345,12 +416,71 @@
     <form action="https://formspree.io/f/mzzggqdw" method="POST" enctype="multipart/form-data" id="presupuesto-form">
       <fieldset class="form-step active">
         <legend>¿Qué desea limpiar?</legend>
-        <label><input type="checkbox" name="sofa" id="checkbox-sofa"> Sofá</label>
-        <label><input type="checkbox" name="sillon" id="checkbox-sillon"> Sillón</label>
-        <label><input type="checkbox" name="silla" id="checkbox-silla"> Silla</label>
-        <label><input type="checkbox" name="colchon" id="checkbox-colchon"> Colchón</label>
-        <label><input type="checkbox" name="alfombra" id="checkbox-alfombra"> Alfombra</label>
-        <label><input type="checkbox" name="asientos" id="checkbox-asientos"> Asientos de coche</label>
+
+<div class="checkbox-grid">
+  <label class="checkbox-tile">
+    <input type="checkbox" name="sofa" />
+    <div class="tile-content">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="2" y="10" width="20" height="8" rx="2" stroke-width="2"/>
+        <path d="M4 10V6a2 2 0 012-2h12a2 2 0 012 2v4" stroke-width="2"/>
+      </svg>
+      <span class="text-label">Sofá</span>
+    </div>
+  </label>
+  <label class="checkbox-tile">
+    <input type="checkbox" name="sillon" />
+    <div class="tile-content">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="5" y="8" width="14" height="10" rx="2" stroke-width="2"/>
+        <path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2" stroke-width="2"/>
+      </svg>
+      <span class="text-label">Sillón</span>
+    </div>
+  </label>
+  <label class="checkbox-tile">
+    <input type="checkbox" name="silla" />
+    <div class="tile-content">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="7" y="4" width="10" height="4" rx="1" stroke-width="2"/>
+        <path d="M8 8v10m8-10v10M6 18h12" stroke-width="2"/>
+      </svg>
+      <span class="text-label">Silla</span>
+    </div>
+  </label>
+  <label class="checkbox-tile">
+    <input type="checkbox" name="colchon" />
+    <div class="tile-content">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="3" y="6" width="18" height="12" rx="2" stroke-width="2"/>
+        <path d="M3 12h18" stroke-width="2"/>
+      </svg>
+      <span class="text-label">Colchón</span>
+    </div>
+  </label>
+  <label class="checkbox-tile">
+    <input type="checkbox" name="alfombra" />
+    <div class="tile-content">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/>
+        <path d="M4 9h16M4 15h16M9 4v16M15 4v16" stroke-width="2"/>
+      </svg>
+      <span class="text-label">Alfombra</span>
+    </div>
+  </label>
+  <label class="checkbox-tile">
+    <input type="checkbox" name="asientos" />
+    <div class="tile-content">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M5 4h4v10H5zM9 12h10a1 1 0 011 1v5H9z" stroke-width="2"/>
+        <path d="M18 17v1a2 2 0 01-2 2H8" stroke-width="2"/>
+      </svg>
+      <span class="text-label">Asientos coche</span>
+    </div>
+  </label>
+</div>
+
+
         <div class="form-nav">
           <button type="button" class="cta cta-primary next">Siguiente</button>
         </div>
