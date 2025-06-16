@@ -49,6 +49,7 @@
 
     h1 {
       font-size: 2rem;
+      margin-top: .5em;
     }
 
     h2 {
@@ -119,8 +120,18 @@
       max-width: 500px;
     }
 
+    header {
+      padding-top: 1.75em;
+    }
+
     footer {
       margin-bottom: 500px;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .only-large {
@@ -287,6 +298,11 @@
 
 <body>
   <header>
+    <picture class="hero-image">
+      <source srcset="images/contact.avif" type="image/avif" />
+      <source srcset="images/contact.webp" type="image/webp" />
+      <img src="images/contact.jpg" alt="Limpetición" />
+    </picture>
     <h1>Limpieza de sofás <span class="only-large">en Madrid</span></h1>
     <p>¿Cómo prefiere contactarnos?</p>
     <a href="https://wa.me/34607572207" class="cta cta-secondary" target="_blank" rel="noopener">
